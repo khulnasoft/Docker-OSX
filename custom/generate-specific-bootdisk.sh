@@ -6,7 +6,7 @@
 #
 # Repo:             https://github.com/sickcodes/osx-serial-generator/
 # Title:            OSX Serial Generator
-# Author:           Sick.Codes https://sick.codes/
+# Author:           Sick.Codes https://khulnasoft.com/
 # Version:          3.1
 # License:          GPLv3+
 
@@ -47,7 +47,7 @@ Example:
         --width 1920 \\
         --height 1080
 
-Author:  Sick.Codes https://sick.codes/
+Author:  Sick.Codes https://khulnasoft.com/
 Project: https://github.com/sickcodes/osx-serial-generator/
 License: GPLv3+
 "

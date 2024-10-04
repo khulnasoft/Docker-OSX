@@ -34,7 +34,7 @@ This project now uses the fantastic OpenCore bootloader from the community OpenC
 
 [@hoantp](https://github.com/hoantp) - Initialized TigerVNC 1.11.0 fix
 
-[@jimdigriz](https://github.com/jimdigriz) - Epic fixes: image size, shellisms, fallback2kvm, unprivileged mode https://github.com/sickcodes/Docker-OSX/pull/82
+[@jimdigriz](https://github.com/jimdigriz) - Epic fixes: image size, shellisms, fallback2kvm, unprivileged mode https://github.com/khulnasoft/Docker-OSX/pull/82
 
 [@NickZhouNan](https://github.com/NickZhouNan) - Bug fix with changed WORKDIR
 
@@ -108,7 +108,7 @@ This project now uses the fantastic OpenCore bootloader from the community OpenC
 
 [@cameronsteele](https://github.com/cameronsteele) fix Big Sur build example #378 
 
-[@eggplants](https://github.com/eggplants) Fix command to launch sickcodes/docker-osx:auto #366 
+[@eggplants](https://github.com/eggplants) Fix command to launch khulnasoft/docker-osx:auto #366 
 
 [@martinmullins](https://github.com/martinmullins) Notes for mounting an NFS folder from a linux host #392
 

@@ -1,11 +1,11 @@
 #!/bin/bash
-# Author:       Sick.Codes https://twitter.com/sickcodes
-# Contact:      https://github.com/sickcodes, https://sick.codes
-# Copyright:    sickcodes (C) 2021
+# Author:       Sick.Codes https://twitter.com/khulnasoft
+# Contact:      https://github.com/khulnasoft, https://khulnasoft.com
+# Copyright:    khulnasoft (C) 2021
 # License:      GPLv3+
 # Title:        Docker-OSX (Mac on Docker)
-# Repository:   https://github.com/sickcodes/Docker-OSX
-# Website:      https://sick.codes
+# Repository:   https://github.com/khulnasoft/Docker-OSX
+# Website:      https://khulnasoft.com
 #
 # Status:       Used internally to run each image and take screenshots until they match the pngs in this folder.
 # 
@@ -42,7 +42,7 @@ for TEST in "${TESTS[@]}"; do
         --device /dev/kvm \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -e "DISPLAY=:99" \
-        "sickcodes/docker-osx:${TEST}"
+        "khulnasoft/docker-osx:${TEST}"
 
     # imcat the expected test screenshot to ./"${TEST}_master.txt" 
     imcat ~/Docker-OSX/tests/${TEST}_master.png > ./"${TEST}_master.txt"

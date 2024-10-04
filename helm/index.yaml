@@ -19,6 +19,6 @@ entries:
     - osx
     name: docker-osx
     urls:
-    - https://sickcodes.github.io/Docker-OSX/helm/docker-osx-0.2.0.tgz
+    - https://khulnasoft.github.io/Docker-OSX/helm/docker-osx-0.2.0.tgz
     version: 0.2.0
 generated: "2021-02-27T04:15:48.782073839Z"

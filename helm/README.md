@@ -2,7 +2,7 @@
 
 Docker-OSX Helm Chart for Kubernetes.
 
-Project page: https://github.com/sickcodes/docker-osx
+Project page: https://github.com/khulnasoft/docker-osx
 
 Available now on Artifact HUB
 [![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/docker-osx)](https://artifacthub.io/packages/search?repo=docker-osx)
@@ -37,16 +37,16 @@ This installs `docker-osx` in Kubernetes.
     * Ensure you are running QEMU 5.X
 * Kubernetes
 * Helm v2
-* `sickcodes/docker-osx-vnc` Docker image
+* `khulnasoft/docker-osx-vnc` Docker image
 
-### Build `sickcodes/docker-osx-vnc`
+### Build `khulnasoft/docker-osx-vnc`
 
 1) Go back to the root directory
 1) Build docker image
 
     ```
     docker build \
-        -t sickcodes/docker-osx-vnc:latest \
+        -t khulnasoft/docker-osx-vnc:latest \
         -f helm/Dockerfile .
     ```
 

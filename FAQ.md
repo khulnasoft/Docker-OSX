@@ -10,7 +10,7 @@ The [macOS software license](https://www.apple.com/legal/sla/) allows running (s
 
 Therefore, yes, there is a legal use for Docker-OSX. If your use doesn't fall under the license or the security bounty terms, then you are/will be violating the macOS software license. **Note that this is not provided as legal advice, and you should consult with your own counsel for legal guidance.**
 
-You may also be interested in this [deeper dive into the subject](https://sick.codes/is-hackintosh-osx-kvm-or-docker-osx-legal/).
+You may also be interested in this [deeper dive into the subject](https://khulnasoft.com/is-hackintosh-osx-kvm-or-docker-osx-legal/).
 
 ### What does Docker-OSX do?
 
@@ -162,7 +162,7 @@ Congratulations, you got a macOS VM up and running! Now what?
 
 ### Slow UI
 
-The macOS UI expects and relies on GPU acceleration, and there is (currently) no way to provide GPU acceleration in the virtual hardware. See [osx-optimizer](https://github.com/sickcodes/osx-optimizer) for macOS configuration to speed things up.
+The macOS UI expects and relies on GPU acceleration, and there is (currently) no way to provide GPU acceleration in the virtual hardware. See [osx-optimizer](https://github.com/khulnasoft/osx-optimizer) for macOS configuration to speed things up.
 
 ### Extract the Virtual Disk
 

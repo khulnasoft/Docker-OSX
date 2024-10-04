@@ -6,11 +6,11 @@
 # /_____/\____/\___/_/|_|\___/_/   \____//____/_/|_|
 #
 # Title:            Docker-OSX (Mac on Docker)
-# Author:           Sick.Codes https://twitter.com/sickcodes
+# Author:           Sick.Codes https://twitter.com/khulnasoft
 # Version:          6.0
 # License:          GPLv3+
-# Repository:       https://github.com/sickcodes/Docker-OSX
-# Website:          https://sick.codes
+# Repository:       https://github.com/khulnasoft/Docker-OSX
+# Website:          https://khulnasoft.com
 #
 # All credits for OSX-KVM and the rest at @Kholia's repo: https://github.com/kholia/osx-kvm
 # OpenCore support go to https://github.com/Leoyzen/KVM-Opencore
@@ -28,11 +28,11 @@
 #
 # Basic Run:
 #
-#       docker run --device /dev/kvm --device /dev/snd -v /tmp/.X11-unix:/tmp/.X11-unix -e "DISPLAY=${DISPLAY:-:0.0}" sickcodes/docker-osx:latest
+#       docker run --device /dev/kvm --device /dev/snd -v /tmp/.X11-unix:/tmp/.X11-unix -e "DISPLAY=${DISPLAY:-:0.0}" khulnasoft/docker-osx:latest
 #
 # Run with SSH:
 #
-#       docker run --device /dev/kvm --device /dev/snd -e RAM=6 -p 50922:10022 -v /tmp/.X11-unix:/tmp/.X11-unix -e "DISPLAY=${DISPLAY:-:0.0}" sickcodes/docker-osx:latest
+#       docker run --device /dev/kvm --device /dev/snd -e RAM=6 -p 50922:10022 -v /tmp/.X11-unix:/tmp/.X11-unix -e "DISPLAY=${DISPLAY:-:0.0}" khulnasoft/docker-osx:latest
 #       # ssh fullname@localhost -p 50922
 #
 # Optargs:
@@ -53,7 +53,7 @@
 #       # you will also need to pass the device to the container
 
 FROM archlinux:base-devel
-LABEL maintainer='https://twitter.com/sickcodes <https://sick.codes>'
+LABEL maintainer='https://twitter.com/khulnasoft <https://khulnasoft.com>'
 
 SHELL ["/bin/bash", "-c"]
 
@@ -81,7 +81,7 @@ RUN pacman -Sy archlinux-keyring --noconfirm \
 
 RUN if [[ "${RANKMIRRORS}" ]]; then \
         { pacman -Sy wget --noconfirm || pacman -Syu wget --noconfirm ; } \
-        ; wget -O ./rankmirrors "https://raw.githubusercontent.com/sickcodes/Docker-OSX/${BRANCH:=master}/rankmirrors" \
+        ; wget -O ./rankmirrors "https://raw.githubusercontent.com/khulnasoft/Docker-OSX/${BRANCH:=master}/rankmirrors" \
         ; wget -O- "https://www.archlinux.org/mirrorlist/?country=${MIRROR_COUNTRY:-US}&protocol=https&use_mirror_status=on" \
         | sed -e 's/^#Server/Server/' -e '/^#/d' \
         | head -n "$((${MIRROR_COUNT:-10}+1))" \
@@ -186,8 +186,8 @@ RUN if [[ "${LINUX}" == true ]]; then \
 
 # optional --build-arg to change branches for testing
 ARG BRANCH=master
-ARG REPO='https://github.com/sickcodes/Docker-OSX.git'
-RUN git clone --recurse-submodules --depth 1 --branch "${BRANCH:=master}" "${REPO:=https://github.com/sickcodes/Docker-OSX.git}"
+ARG REPO='https://github.com/khulnasoft/Docker-OSX.git'
+RUN git clone --recurse-submodules --depth 1 --branch "${BRANCH:=master}" "${REPO:=https://github.com/khulnasoft/Docker-OSX.git}"
 
 RUN touch Launch.sh \
     && chmod +x ./Launch.sh \

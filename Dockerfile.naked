@@ -6,11 +6,11 @@
 # /_____/\____/\___/_/|_|\___/_/   \____//____/_/|_|  :NAKED
 # 
 # Title:            Docker-OSX (Mac on Docker)
-# Author:           Sick.Codes https://twitter.com/sickcodes
+# Author:           Sick.Codes https://twitter.com/khulnasoft
 # Version:          6.0
 # License:          GPLv3+
-# Repository:       https://github.com/sickcodes/Docker-OSX
-# Website:          https://sick.codes
+# Repository:       https://github.com/khulnasoft/Docker-OSX
+# Website:          https://khulnasoft.com
 # 
 # This image won't run unless you supply a disk image using:
 #       -v ${PWD}/mac_hdd_ng.img:/image
@@ -30,9 +30,9 @@
 #       docker run -it --device /dev/kvm -p 50922:10022 -v ${PWD}/mac_hdd_ng.img:/image -e "DISPLAY=${DISPLAY:-:0.0}" -v /tmp/.X11-unix:/tmp/.X11-unix docker-osx:naked
 # 
 
-FROM sickcodes/docker-osx:latest
+FROM khulnasoft/docker-osx:latest
 
-LABEL maintainer='https://twitter.com/sickcodes <https://sick.codes>'
+LABEL maintainer='https://twitter.com/khulnasoft <https://khulnasoft.com>'
 
 USER root
 
@@ -59,7 +59,7 @@ RUN pacman -Sy archlinux-keyring --noconfirm \
 
 RUN if [[ "${RANKMIRRORS}" ]]; then \
         { pacman -Sy wget --noconfirm || pacman -Syu wget --noconfirm ; } \
-        ; wget -O ./rankmirrors "https://raw.githubusercontent.com/sickcodes/Docker-OSX/${BRANCH:=master}/rankmirrors" \
+        ; wget -O ./rankmirrors "https://raw.githubusercontent.com/khulnasoft/Docker-OSX/${BRANCH:=master}/rankmirrors" \
         ; wget -O- "https://www.archlinux.org/mirrorlist/?country=${MIRROR_COUNTRY:-US}&protocol=https&use_mirror_status=on" \
         | sed -e 's/^#Server/Server/' -e '/^#/d' \
         | head -n "$((${MIRROR_COUNT:-10}+1))" \

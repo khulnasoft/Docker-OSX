@@ -8,7 +8,7 @@ services:
       args:
         - SIZE=200G
         - VERSION=10.15.5
-    image: sickcodes/docker-osx
+    image: khulnasoft/docker-osx
     privileged: true
     environment:
       - DISPLAY=${DISPLAY:-:0.0}

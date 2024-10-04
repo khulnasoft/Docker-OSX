@@ -6,19 +6,19 @@
 # /_____/\____/\___/_/|_|\___/_/   \____//____/_/|_|  :NAKED-AUTO
 # 
 # Title:            Docker-OSX (Mac on Docker)
-# Author:           Sick.Codes https://twitter.com/sickcodes
+# Author:           Sick.Codes https://twitter.com/khulnasoft
 # Version:          6.0
 # License:          GPLv3+
-# Repository:       https://github.com/sickcodes/Docker-OSX
-# Website:          https://sick.codes
+# Repository:       https://github.com/khulnasoft/Docker-OSX
+# Website:          https://khulnasoft.com
 # 
 # This Dockerfile needs you to supply a pre-installed installation of Docker-OSX!
 # 
-# Visit https://github.com/sickcodes/Docker-OSX for info
+# Visit https://github.com/khulnasoft/Docker-OSX for info
 
-FROM sickcodes/docker-osx:latest
+FROM khulnasoft/docker-osx:latest
 
-LABEL maintainer='https://twitter.com/sickcodes <https://sick.codes>'
+LABEL maintainer='https://twitter.com/khulnasoft <https://khulnasoft.com>'
 
 USER root
 
@@ -48,7 +48,7 @@ RUN pacman -Sy archlinux-keyring --noconfirm \
 
 RUN if [[ "${RANKMIRRORS}" ]]; then \
         { pacman -Sy wget --noconfirm || pacman -Syu wget --noconfirm ; } \
-        ; wget -O ./rankmirrors "https://raw.githubusercontent.com/sickcodes/Docker-OSX/${BRANCH:=master}/rankmirrors" \
+        ; wget -O ./rankmirrors "https://raw.githubusercontent.com/khulnasoft/Docker-OSX/${BRANCH:=master}/rankmirrors" \
         ; wget -O- "https://www.archlinux.org/mirrorlist/?country=${MIRROR_COUNTRY:-US}&protocol=https&use_mirror_status=on" \
         | sed -e 's/^#Server/Server/' -e '/^#/d' \
         | head -n "$((${MIRROR_COUNT:-10}+1))" \
@@ -110,7 +110,7 @@ ARG WGET_OPTIONS=
 
 # Feel free to take a copy of this image and then host it internally
 ARG IMAGE_URL=
-# ARG IMAGE_URL='https://images.sick.codes/mac_hdd_ng_auto_big_sur.img'
+# ARG IMAGE_URL='https://images.khulnasoft.com/mac_hdd_ng_auto_big_sur.img'
 
 RUN if [[ "${COMPLETE}" ]]; then \
         echo "Downloading your image... This step might take a while... Press Ctrl+C if you want to abort." \
@@ -181,7 +181,7 @@ ENV LIBGUESTFS_TRACE=1
 
 ENV TERMS_OF_USE=i_agree
 
-ENV BOILERPLATE="By using this Dockerfile, you hereby agree that you are a security reseacher or developer and agree to use this Dockerfile to make the world a safer place. Examples include: making your apps safer, finding your mobile phone, compiling security products, etc. You understand that Docker-OSX is an Open Source project, which is released to the public under the GNU Pulic License version 3 and above. You acknowledge that the Open Source project is absolutely unaffiliated with any third party, in any form whatsoever. Any trademarks or intelectual property which happen to be mentioned anywhere in or around the project are owned by their respective owners. By using this Dockerfile, you agree to agree to the EULA of each piece of upstream or downstream software. The following code is released for the sole purpose of security research, under the GNU Public License version 3. If you are concerned about the licensing, please note that this project is not AGPL. A copy of the license is available online: https://github.com/sickcodes/Docker-OSX/blob/master/LICENSE. In order to use the following Dockerfile you must read and understand the terms. Once you have read the terms, use the -e TERMS_OF_USE=i_agree or -e TERMS_OF_USE=i_disagree"
+ENV BOILERPLATE="By using this Dockerfile, you hereby agree that you are a security reseacher or developer and agree to use this Dockerfile to make the world a safer place. Examples include: making your apps safer, finding your mobile phone, compiling security products, etc. You understand that Docker-OSX is an Open Source project, which is released to the public under the GNU Pulic License version 3 and above. You acknowledge that the Open Source project is absolutely unaffiliated with any third party, in any form whatsoever. Any trademarks or intelectual property which happen to be mentioned anywhere in or around the project are owned by their respective owners. By using this Dockerfile, you agree to agree to the EULA of each piece of upstream or downstream software. The following code is released for the sole purpose of security research, under the GNU Public License version 3. If you are concerned about the licensing, please note that this project is not AGPL. A copy of the license is available online: https://github.com/khulnasoft/Docker-OSX/blob/master/LICENSE. In order to use the following Dockerfile you must read and understand the terms. Once you have read the terms, use the -e TERMS_OF_USE=i_agree or -e TERMS_OF_USE=i_disagree"
 
 CMD echo "${BOILERPLATE}" \
     ; [[ "${TERMS_OF_USE}" = i_agree ]] || exit 1 \

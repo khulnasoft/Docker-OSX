@@ -6,7 +6,7 @@
 #
 # Repo:             https://github.com/sickcodes/osx-serial-generator/
 # Title:            OSX Serial Generator
-# Author:           Sick.Codes https://sick.codes/
+# Author:           Sick.Codes https://khulnasoft.com/
 # Version:          3.1
 # License:          GPLv3+
 
@@ -52,7 +52,7 @@ Defaults:
     - if you set --custom-plist, --plists is assumed
     - if you set --output-env, --envs is assumed
 
-Author:  Sick.Codes https://sick.codes/
+Author:  Sick.Codes https://khulnasoft.com/
 Project: https://github.com/sickcodes/osx-serial-generator/
 License: GPLv3+
 "

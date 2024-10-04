@@ -6,11 +6,11 @@
 # /_____/\____/\___/_/|_|\___/_/   \____//____/_/|_| TESTS
 #
 # Title:            Docker-OSX (Mac on Docker)
-# Author:           Sick.Codes https://twitter.com/sickcodes
+# Author:           Sick.Codes https://twitter.com/khulnasoft
 # Version:          4.2
 # License:          GPLv3+
-# Repository:       https://github.com/sickcodes/Docker-OSX
-# Website:          https://sick.codes
+# Repository:       https://github.com/khulnasoft/Docker-OSX
+# Website:          https://khulnasoft.com
 #
 # Status:           Used internally to auto build, run and test images on DO.
 # 
@@ -113,7 +113,7 @@ while (( "$#" )); do
 done
 
 BRANCH="${BRANCH:=master}"
-REPO="${REPO:=https://github.com/sickcodes/Docker-OSX.git}"
+REPO="${REPO:=https://github.com/khulnasoft/Docker-OSX.git}"
 VNC_PASSWORD="${VNC_PASSWORD:=testing}"
 MIRROR_COUNTRY="${MIRROR_COUNTRY:=US}"
 NO_CACHE="${NO_CACHE:=--no-cache}"
@@ -234,7 +234,7 @@ docker-osx:naked () {
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
         -f ./Dockerfile.naked \
         -t docker-osx:naked .
-    docker tag docker-osx:naked sickcodes/docker-osx:naked
+    docker tag docker-osx:naked khulnasoft/docker-osx:naked
 }
 
 docker-osx:naked-auto () {
@@ -244,7 +244,7 @@ docker-osx:naked-auto () {
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
         -f ./Dockerfile.naked-auto \
         -t docker-osx:naked-auto .
-    docker tag docker-osx:naked-auto sickcodes/docker-osx:naked-auto
+    docker tag docker-osx:naked-auto khulnasoft/docker-osx:naked-auto
 }
 
 docker-osx:auto () {
@@ -253,17 +253,17 @@ docker-osx:auto () {
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
         -f ./Dockerfile.auto \
         -t docker-osx:auto .
-    docker tag docker-osx:auto sickcodes/docker-osx:auto
+    docker tag docker-osx:auto khulnasoft/docker-osx:auto
 }
 
 # docker-osx:auto-big-sur () {
 #     docker build ${NO_CACHE} \
 #         --build-arg RANKMIRRORS=true \
 #         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
-#         --build-arg IMAGE_URL='https://images.sick.codes/mac_hdd_ng_auto_big_sur.img' \
+#         --build-arg IMAGE_URL='https://images.khulnasoft.com/mac_hdd_ng_auto_big_sur.img' \
 #         -f ./Dockerfile.auto \
 #         -t docker-osx:auto-big-sur .
-#     docker tag docker-osx:auto-big-sur sickcodes/docker-osx:auto-big-sur
+#     docker tag docker-osx:auto-big-sur khulnasoft/docker-osx:auto-big-sur
 # }
 
 docker-osx:version () {
@@ -275,7 +275,7 @@ docker-osx:version () {
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
         -f ./Dockerfile \
         -t "docker-osx:${SHORTNAME}" .
-    docker tag "docker-osx:${SHORTNAME}" "sickcodes/docker-osx:${SHORTNAME}"
+    docker tag "docker-osx:${SHORTNAME}" "khulnasoft/docker-osx:${SHORTNAME}"
 }
 
 reset_docker_hard () {
@@ -323,7 +323,7 @@ for SHORTNAME in "${VERSION_BUILDS[@]}"; do
     docker-osx:version "${SHORTNAME}"
 done
 
-docker tag docker-osx:catalina sickcodes/docker-osx:latest
+docker tag docker-osx:catalina khulnasoft/docker-osx:latest
 
 for TEST_BUILD in "${TEST_BUILDS[@]}"; do
     "${TEST_BUILD}"
@@ -335,12 +335,12 @@ bash ./tests/boot-images.sh || exit 1
 if [[ "${DOCKER_USERNAME}" ]] && [[ "${DOCKER_PASSWORD}" ]]; then
     docker login --username "${DOCKER_USERNAME}" --password "${DOCKER_PASSWORD}" \
         && for SHORTNAME in "${VERSION_BUILDS[@]}"; do
-            docker push "sickcodes/docker-osx:${SHORTNAME}"
+            docker push "khulnasoft/docker-osx:${SHORTNAME}"
         done \
         && touch PUSHED
-    docker push sickcodes/docker-osx:naked
-    docker push sickcodes/docker-osx:auto
-    docker push sickcodes/docker-osx:naked-auto
+    docker push khulnasoft/docker-osx:naked
+    docker push khulnasoft/docker-osx:auto
+    docker push khulnasoft/docker-osx:naked-auto
 
 fi
 
