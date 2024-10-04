@@ -129,7 +129,7 @@ RUN tee -a sshd_config <<< 'AllowTcpForwarding yes' \
 USER arch
 
 # download OSX-KVM for the submodules
-RUN git clone --recurse-submodules --depth 1 https://github.com/kholia/OSX-KVM.git /home/arch/OSX-KVM
+RUN git clone --recurse-submodules --depth 1 https://github.com/khulnasoft-lab/OSX-KVM /home/arch/OSX-KVM
 
 # enable ssh
 # docker exec .... ./enable-ssh.sh
