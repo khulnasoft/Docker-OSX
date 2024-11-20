@@ -14,7 +14,6 @@ The Discord is active on #docker-osx and anyone is welcome to come and ask quest
     <a href="https://hub.docker.com/r/khulnasoft/docker-osx"><img src="https://dockeri.co/image/khulnasoft/docker-osx"/></a><a href="https://discord.gg/sickchat"><a href="https://discord.gg/sickchat" target="_blank"><img src="https://raw.githubusercontent.com/khulnasoft/Docker-OSX/master/discord-logo.svg"></a></a>
 </p>
 
-
 ### Click to join the Discord server [https://discord.gg/sickchat](https://discord.gg/sickchat)
 
 ### Click to join the Telegram server [https://t.me/khulnasoft](https://t.me/khulnasoft)
@@ -52,6 +51,7 @@ Video setup tutorial is also available here: https://www.youtube.com/watch?v=wLe
 First time here? try [initial setup](#initial-setup), otherwise try the instructions below to use either Catalina or Big Sur.
 
 ## Any questions, ideas, or just want to hang out?
+
 # [https://discord.gg/sickchat](https://discord.gg/sickchat)
 
 Release names and their version:
@@ -68,6 +68,7 @@ docker run -it \
 
 # docker build -t docker-osx .
 ```
+
 ### Big Sur (11) [![https://img.shields.io/docker/image-size/khulnasoft/docker-osx/big-sur?label=khulnasoft%2Fdocker-osx%3Abig-sur](https://img.shields.io/docker/image-size/khulnasoft/docker-osx/big-sur?label=khulnasoft%2Fdocker-osx%3Abig-sur)](https://hub.docker.com/r/khulnasoft/docker-osx/tags?page=1&ordering=last_updated)
 
 ```bash
@@ -91,7 +92,7 @@ docker run -it \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -e GENERATE_UNIQUE=true \
-    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist' \
+    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/khulnasoft/Docker-OSX/tree/master/KeyGenX/master/configs/config-custom.plist' \
     khulnasoft/docker-osx:monterey
 
 # docker build -t docker-osx --build-arg SHORTNAME=monterey .
@@ -107,7 +108,7 @@ docker run -it \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -e GENERATE_UNIQUE=true \
-    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist' \
+    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/khulnasoft/Docker-OSX/tree/master/KeyGenX/master/configs/config-custom.plist' \
     khulnasoft/docker-osx:ventura
 
 # docker build -t docker-osx --build-arg SHORTNAME=ventura .
@@ -125,7 +126,7 @@ docker run -it \
     -e GENERATE_UNIQUE=true \
     -e CPU='Haswell-noTSX' \
     -e CPUID_FLAGS='kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on' \
-    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom-sonoma.plist' \
+    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/khulnasoft/Docker-OSX/tree/master/KeyGenX/master/configs/config-custom-sonoma.plist' \
     khulnasoft/docker-osx:sonoma
 
 # docker build -t docker-osx --build-arg SHORTNAME=sonoma .
@@ -180,12 +181,9 @@ docker run -it \
 # docker build -t docker-osx --build-arg SHORTNAME=mojave .
 ```
 
-
-
-#### Download the image manually and use it in Docker 
+#### Download the image manually and use it in Docker
 
 [![https://img.shields.io/docker/image-size/khulnasoft/docker-osx/naked?label=khulnasoft%2Fdocker-osx%3Anaked](https://img.shields.io/docker/image-size/khulnasoft/docker-osx/naked?label=khulnasoft%2Fdocker-osx%3Anaked)](https://hub.docker.com/r/khulnasoft/docker-osx/tags?page=1&ordering=last_updated)
-
 
 This is a particularly good way for downloading the container, in case Docker's CDN (or your connection) happens to be slow.
 
@@ -203,11 +201,9 @@ docker run -it \
     khulnasoft/docker-osx:naked
 ```
 
-
 #### Use your own image and manually and automatically log into a shell
 
 [![https://img.shields.io/docker/image-size/khulnasoft/docker-osx/naked-auto?label=khulnasoft%2Fdocker-osx%3Anaked-auto](https://img.shields.io/docker/image-size/khulnasoft/docker-osx/naked-auto?label=khulnasoft%2Fdocker-osx%3Anaked-auto)](https://hub.docker.com/r/khulnasoft/docker-osx/tags?page=1&ordering=last_updated)
-
 
 Enable SSH in network sharing inside the guest first. Change `-e "USERNAME=user"` and `-e "PASSWORD=password"` to your credentials. The container will add itself to `~/.ssh/authorized_keys`
 
@@ -233,7 +229,9 @@ docker run -it \
 ```
 
 # Share directories, sharing files, shared folder, mount folder
+
 The easiest and most secure way is `sshfs`
+
 ```bash
 # on Linux/Windows
 mkdir ~/mnt/osx
@@ -241,7 +239,6 @@ sshfs user@localhost:/ -p 50922 ~/mnt/osx
 # wait a few seconds, and ~/mnt/osx will have full rootfs mounted over ssh, and in userspace
 # automated: sshpass -p <password> sshfs user@localhost:/ -p 50922 ~/mnt/osx
 ```
-
 
 # (VFIO) iPhone USB passthrough (VFIO)
 
@@ -256,7 +253,6 @@ Video setup tutorial for usbfluxd is also available here: https://www.youtube.co
 <p align="center">
   <a href="https://www.youtube.com/watch?v=kTk5fGjK_PM" target="_blank"><img alt="iPhone USB passthrough on macOS virtual machine Linux & Windows" src="https://raw.githubusercontent.com/khulnasoft/Docker-OSX/master/Youtube-USBFLUXD-Screenshot-Docker-OSX.png"></a>
 </p>
-
 
 This method WORKS on laptop, PC, anything!
 
@@ -279,12 +275,14 @@ Available on the AUR: [https://aur.archlinux.org/packages/usbfluxd/](https://aur
 Plug in your iPhone or iPad.
 
 Terminal 1
+
 ```bash
 sudo systemctl start usbmuxd
 sudo avahi-daemon
 ```
 
 Terminal 2:
+
 ```bash
 # on host
 sudo systemctl restart usbmuxd
@@ -292,6 +290,7 @@ sudo socat tcp-listen:5000,fork unix-connect:/var/run/usbmuxd
 ```
 
 Terminal 3:
+
 ```bash
 sudo usbfluxd -f -n
 ```
@@ -305,6 +304,7 @@ Install homebrew.
 `172.17.0.1` is usually the Docker bridge IP, which is your PC, but you can use any IP from `ip addr`...
 
 macOS Terminal:
+
 ```zsh
 # on the guest
 brew install make automake autoconf libtool pkg-config gcc libimobiledevice usbmuxd
@@ -330,7 +330,8 @@ sudo usbfluxd -f -r 172.17.0.1:5000
 
 Close apps such as Xcode and reopen them and your device should appear!
 
-*If you need to start again on Linux, wipe the current usbfluxd, usbmuxd, and socat:*
+_If you need to start again on Linux, wipe the current usbfluxd, usbmuxd, and socat:_
+
 ```bash
 sudo killall usbfluxd
 sudo systemctl restart usbmuxd
@@ -368,6 +369,7 @@ systemctl disable --now docker.socket
 systemctl stop docker
 systemctl stop docker.socket
 ```
+
 Now, that Docker daemon is off, move /var/lib/docker somewhere
 
 Then, symbolicly link /var/lib/docker somewhere:
@@ -379,6 +381,7 @@ ln -s /run/media/user/some_drive/docker /var/lib/docker
 # now check if /var/lib/docker is working still
 ls /var/lib/docker
 ```
+
 If you see folders, then it worked. You can restart Docker, or just reboot if you want to be sure.
 
 ## Important notices:
@@ -386,8 +389,9 @@ If you see folders, then it worked. You can restart Docker, or just reboot if yo
 **2021-11-14** - Added High Sierra, Mojave
 
 Pick one of these while **building**, irrelevant when using docker pull:
+
 ```
---build-arg SHORTNAME=high-sierra 
+--build-arg SHORTNAME=high-sierra
 --build-arg SHORTNAME=mojave
 --build-arg SHORTNAME=catalina
 --build-arg SHORTNAME=big-sur
@@ -395,7 +399,6 @@ Pick one of these while **building**, irrelevant when using docker pull:
 --build-arg SHORTNAME=ventura
 --build-arg SHORTNAME=sonoma
 ```
-
 
 ## Technical details
 
@@ -453,13 +456,14 @@ Naked Auto: same as above but with `-e USERNAME` & `-e PASSWORD` and `-e OSX_COM
 [![https://img.shields.io/docker/image-size/khulnasoft/docker-osx/naked-auto?label=khulnasoft%2Fdocker-osx%3Anaked-auto](https://img.shields.io/docker/image-size/khulnasoft/docker-osx/naked-auto?label=khulnasoft%2Fdocker-osx%3Anaked-auto)](https://hub.docker.com/r/khulnasoft/docker-osx/tags?page=1&ordering=last_updated)
 
 ## Capabilities
+
 - use iPhone OSX KVM on Linux using [usbfluxd](https://github.com/corellium/usbfluxd)!
 - macOS Monterey VM on Linux!
 - Folder sharing-
 - USB passthrough (hotplug too)
 - SSH enabled (`localhost:50922`)
 - VNC enabled (`localhost:8888`) if using ./vnc version
-- iMessage security research via [serial number generator!](https://github.com/sickcodes/osx-serial-generator)
+- iMessage security research via [serial number generator!](https://github.com/khulnasoft/Docker-OSX/tree/master/KeyGenX)
 - X11 forwarding is enabled
 - runs on top of QEMU + KVM
 - supports Big Sur, custom images, Xvfb headless mode
@@ -523,6 +527,7 @@ In case you're interested, contact [@khulnasoft on Twitter](https://twitter.com/
 Docker-OSX is licensed under the [GPL v3+](LICENSE). Contributions are welcomed and immensely appreciated. You are in fact permitted to use Docker-OSX as a tool to create proprietary software.
 
 ### Other cool Docker/QEMU based projects
+
 - [Run Android in a Docker Container with Dock Droid](https://github.com/khulnasoft/dock-droid)
 - [Run Android fully native on the host!](https://github.com/khulnasoft/droid-native)
 - [Run iOS 12 in a Docker container with Docker-eyeOS](https://github.com/khulnasoft/Docker-eyeOS) - [https://github.com/khulnasoft/Docker-eyeOS](https://github.com/khulnasoft/Docker-eyeOS)
@@ -559,6 +564,7 @@ Create your personal image using `:latest` or `big-sur`. Then, pull the image ou
 - `khulnasoft/docker-osx:mojave` - I want to run Mojave.
 
 ## Initial setup
+
 Before you do anything else, you will need to turn on hardware virtualization in your BIOS. Precisely how will depend on your particular machine (and BIOS), but it should be straightforward.
 
 Then, you'll need QEMU and some other dependencies on your host:
@@ -594,16 +600,18 @@ You must have Windows 11 installed with build 22000+ (21H2 or higher).
 First, install WSL on your computer by running this command in an administrator powershell. For more info, look [here](https://docs.microsoft.com/en-us/windows/wsl/install).
 
 This will install Ubuntu by default.
+
 ```
 wsl --install
 ```
 
- You can confirm WSL2 is enabled using `wsl -l -v` in PowerShell. To see other distributions that are available, use `wsl -l -o`.
+You can confirm WSL2 is enabled using `wsl -l -v` in PowerShell. To see other distributions that are available, use `wsl -l -o`.
 
 If you have previously installed WSL1, upgrade to WSL 2. Check [this link to upgrade from WSL1 to WSL2](https://docs.microsoft.com/en-us/windows/wsl/install#upgrade-version-from-wsl-1-to-wsl-2).
 
 After WSL installation, go to `C:/Users/<Your_Name>/.wslconfig` and add `nestedVirtualization=true` to the end of the file (If the file doesn't exist, create it). For more information about the `.wslconfig` file check [this link](https://docs.microsoft.com/en-us/windows/wsl/wsl-config#wslconfig). Verify that you have selected "Show Hidden Files" and "Show File Extensions" in File Explorer options.
 The result should be like this:
+
 ```
 [wsl2]
 nestedVirtualization=true
@@ -624,7 +632,7 @@ After installation, go into Settings and check these 2 boxes:
 
 ```
 General -> "Use the WSL2 based engine";
-Resources -> WSL Integration -> "Enable integration with my default WSL distro", 
+Resources -> WSL Integration -> "Enable integration with my default WSL distro",
 ```
 
 Ensure `x11-apps` is installed. Use the command `sudo apt install x11-apps -y` to install it if it isn't.
@@ -639,6 +647,7 @@ To use WSLg's built-in X-11 server, change these two lines in the docker run com
 -e "DISPLAY=${DISPLAY:-:0.0}" \
 -v /mnt/wslg/.X11-unix:/tmp/.X11-unix \
 ```
+
 Or try:
 
 ```
@@ -658,7 +667,7 @@ For Ubuntu 20.x on Windows, see [https://github.com/khulnasoft/Docker-OSX/discus
 - Click `Disk Utility`
 
 - Erase the BIGGEST disk (around 200gb default), DO NOT MODIFY THE SMALLER DISKS.
--- if you can't click `erase`, you may need to reduce the disk size by 1kb
+  -- if you can't click `erase`, you may need to reduce the disk size by 1kb
 
 - (optional) Create a partition using the unused space to house the OS and your files if you want to limit the capacity. (For Xcode 12 partition at least 60gb.)
 
@@ -679,8 +688,6 @@ More specific/advanced troubleshooting questions and answers may be found in [Mo
 #### Confirm that your CPU supports virtualization
 
 See [initial setup](#initial-setup).
-
-
 
 #### Docker Unknown Server OS error
 
@@ -705,7 +712,6 @@ Or
 
 `sudo systemctl --enable --now dockerd` for start dockerd on every reboot, and now.
 
-
 #### Use more CPU Cores/SMP
 
 Examples:
@@ -728,6 +734,7 @@ If you are not in the Docker group:
 ```bash
 sudo usermod -aG docker "${USER}"
 ```
+
 and also add yourself to the kvm and libvirt groups if needed:
 
 ```bash
@@ -759,16 +766,15 @@ Big thank you to our contributors who have worked out almost every conceivable i
 
 [https://github.com/khulnasoft/Docker-OSX/blob/master/CREDITS.md](https://github.com/khulnasoft/Docker-OSX/blob/master/CREDITS.md)
 
-
 ### Start the same container later (persistent disk)
 
-Created a container with `docker run` and want to reuse the underlying image again later? 
+Created a container with `docker run` and want to reuse the underlying image again later?
 
 NB: see [container creation examples](#container-creation-examples) first for how to get to the point where this is applicable.
 
 This is for when you want to run the SAME container again later. You may need to use `docker commit` to save your container before you can reuse it. Check if your container is persisted with `docker ps --all`.
 
-If you don't run this you will have a new image every time. 
+If you don't run this you will have a new image every time.
 
 ```bash
 # look at your recent containers and copy the CONTAINER ID
@@ -784,7 +790,7 @@ docker start -ai abc123xyz567
 
 ```
 
-You can also pull the `.img` file out of the container, which is stored in `/var/lib/docker`, and supply it as a runtime argument to the `:naked` Docker image. 
+You can also pull the `.img` file out of the container, which is stored in `/var/lib/docker`, and supply it as a runtime argument to the `:naked` Docker image.
 
 See also: [here](https://github.com/khulnasoft/Docker-OSX/issues/197).
 
@@ -828,6 +834,7 @@ xhost +
 ```
 
 ### RAM over-allocation
+
 You cannot allocate more RAM than your machine has. The default is 3 Gigabytes: `-e RAM=3`.
 
 If you are trying to allocate more RAM to the container than you currently have available, you may see an error like the following: `cannot set up guest memory 'pc.ram': Cannot allocate memory`. See also: [here](https://github.com/khulnasoft/Docker-OSX/issues/188), [here](https://github.com/khulnasoft/Docker-OSX/pull/189).
@@ -1006,9 +1013,11 @@ docker run -it \
 # sudo -S mount_9p hostshare
 
 ```
+
 ### Share Linux NFS Drive into macOS
 
 To share a folder using NFS, setup a folder for on the host machine, for example, `/srv/nfs/share` and then append to `/etc/exports`:
+
 ```bash
 /srv/nfs/share      127.0.0.1/0(insecure,rw,all_squash,anonuid=1000,anongid=985,no_subtree_check)
 ```
@@ -1025,6 +1034,7 @@ sudo exportfs -arv
 Give permissions on the shared folder for the `anonuid` and `anongid`, where `anonuid` and `anongid` matches that of your linux user; `id -u`
 
 `id -u ; id -g` will print `userid:groupid`
+
 ```
 chown 1000:985 /srv/nfs/share
 chmod u+rwx /srv/nfs/share
@@ -1033,6 +1043,7 @@ chmod u+rwx /srv/nfs/share
 Start the Docker-OSX container with the additional flag `--network host`
 
 Create and mount the nfs folder from the mac terminal:
+
 ```
 mkdir -p ~/mnt
 sudo mount_nfs -o locallocks 10.0.2.2:/srv/nfs/share ~/mnt
@@ -1225,12 +1236,12 @@ You don't need to touch these two files.
 The config.plist has 5 values replaced with placeholders. [Click here to see those values for no reason.](https://github.com/khulnasoft/Docker-OSX/blob/master/custom/config-nopicker-custom.plist#L705)
 
 - `generate-unique-machine-values.sh`
-This script will generate serial numbers, with Mac Addresses, plus output to CSV/TSV, plus make a `bootdisk image`.
+  This script will generate serial numbers, with Mac Addresses, plus output to CSV/TSV, plus make a `bootdisk image`.
 
-You can create hundreds, `./custom/generate-unique-machine-values.sh --help`
+You can create hundreds, `./scripts/generate-unique-machine-values.sh --help`
 
 ```bash
-./custom/generate-unique-machine-values.sh \
+./scripts/generate-unique-machine-values.sh \
     --count 1 \
     --tsv ./serial.tsv \
     --bootdisks \
@@ -1241,6 +1252,7 @@ You can create hundreds, `./custom/generate-unique-machine-values.sh --help`
 Or if you have some specific serial numbers...
 
 - `generate-specific-bootdisk.sh`
+
 ```bash
 generate-specific-bootdisk.sh \
     --model "${DEVICE_MODEL}" \
@@ -1250,6 +1262,7 @@ generate-specific-bootdisk.sh \
     --mac-address "${MAC_ADDRESS}" \
     --output-bootdisk OpenCore-nopicker.qcow2
 ```
+
 #### This example generates a random set of serial numbers at runtime, headlessly
 
 ```bash
@@ -1314,6 +1327,7 @@ If you want to generate serial numbers, either make them at runtime using
 `    -e GENERATE_UNIQUE=true \`
 
 Or you can generate them inside the `./custom` folder. And then use:
+
 ```bash
     -e GENERATE_SPECIFIC=true \
     -e SERIAL="" \
@@ -1462,16 +1476,21 @@ Here's a few other resolutions! If your resolution is invalid, it will default t
 #### This example shows how to change resolution after the container is created.
 
 First step is to stop the docker daemon
+
 ```
 sudo systemctl stop docker
 ```
-The second step is to change container config in 
+
+The second step is to change container config in
+
 ```
 /var/lib/docker/containers/[container-id]/config.v2.json
 ```
+
 (Suppose your original WIDTH is 1024 and HEIGHT is 768, you can search 1024 and replace it with the new value. Same for 768.)
 
 The last step is to restart the docker daemon
+
 ```
 sudo systemctl restart docker
 ```
@@ -1480,13 +1499,14 @@ sudo systemctl restart docker
 
 Pass the disk into the container as a volume and then pass the disk again into QEMU command line extras with.
 
-Use the `config-custom.plist` because you probably want to see the boot menu, otherwise omit the first line:
+Use the `configs/config-custom.plist` because you probably want to see the boot menu, otherwise omit the first line:
 
 ```bash
 DISK_TWO="${PWD}/mount_me.img"
 ```
+
 ```dockerfile
--e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist' \
+-e MASTER_PLIST_URL='https://raw.githubusercontent.com/khulnasoft/Docker-OSX/tree/master/KeyGenX/master/configs/config-custom.plist' \
 -v "${DISK_TWO}:/disktwo" \
 -e EXTRA='-device ide-hd,bus=sata.5,drive=DISK-TWO -drive id=DISK-TWO,if=none,file=/disktwo,format=qcow2' \
 ```
@@ -1501,7 +1521,7 @@ docker run -it \
     --device /dev/kvm \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist' \
+    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/khulnasoft/Docker-OSX/tree/master/KeyGenX/master/configs/config-custom.plist' \
     -v "${OSX_IMAGE}":/image \
     -v "${DISK_TWO}":/disktwo \
     -e EXTRA='-device ide-hd,bus=sata.5,drive=DISK-TWO -drive id=DISK-TWO,if=none,file=/disktwo,format=qcow2' \
@@ -1510,13 +1530,11 @@ docker run -it \
 
 See also: [here](https://github.com/khulnasoft/Docker-OSX/issues/222).
 
-
 #### Extracting the APFS disk on Linux
 
 In Docker-OSX, we are using `qcow2` images.
 
 This means the image grows as you use it, but the guest OS thinks you have 200GB available.
-
 
 **READ ONLY**
 
@@ -1551,7 +1569,7 @@ sudo rmmod nbd
 
 ### USB Passthrough
 
-Firstly, QEMU must be started as root. 
+Firstly, QEMU must be started as root.
 
 It is also potentially possible to accomplish USB passthrough by changing the permissions of the device in the container.
 See [here](https://www.linuxquestions.org/questions/slackware-14/qemu-usb-permissions-744557/#post3628691).
@@ -1585,7 +1603,6 @@ In this example, we want to pass through a smartcard device. The device we want 
 
 There may also be differences if your device is usb 2.0 (ehci) vs usb 3.0 (xhci).
 See [here](https://unix.stackexchange.com/a/452946/101044) for more details.
-
 
 ```bash
 # hostbus and hostport correspond to the numbers from lsusb
@@ -1652,7 +1669,7 @@ The Quick Start command should work out of the box, provided that you keep the f
     -e "DISPLAY=${DISPLAY:-:0.0}" \
 ```
 
-#### Prebuilt image with arbitrary command line arguments 
+#### Prebuilt image with arbitrary command line arguments
 
 [![https://img.shields.io/docker/image-size/khulnasoft/docker-osx/auto?label=khulnasoft%2Fdocker-osx%3Aauto](https://img.shields.io/docker/image-size/khulnasoft/docker-osx/auto?label=khulnasoft%2Fdocker-osx%3Aauto)](https://hub.docker.com/r/khulnasoft/docker-osx/tags?page=1&ordering=last_updated)
 
@@ -1706,7 +1723,7 @@ For a headless container, **remove** the following two lines from your `docker r
     # -e "DISPLAY=${DISPLAY:-:0.0}" \
 ```
 
-#### Building a headless container from a custom image 
+#### Building a headless container from a custom image
 
 [![https://img.shields.io/docker/image-size/khulnasoft/docker-osx/naked?label=khulnasoft%2Fdocker-osx%3Anaked](https://img.shields.io/docker/image-size/khulnasoft/docker-osx/naked?label=khulnasoft%2Fdocker-osx%3Anaked)](https://hub.docker.com/r/khulnasoft/docker-osx/tags?page=1&ordering=last_updated)
 
@@ -1791,6 +1808,7 @@ Note: `-disable-ticketing` will allow unauthenticated access to the VM. See the 
 Then simply do `remote-viewer spice://localhost:3001` and add `--spice-debug` for debugging.
 
 #### Creating images based on an already configured and set up container
+
 ```bash
 # You can create an image of an already configured and setup container.
 # This allows you to effectively duplicate a system.
@@ -1879,8 +1897,6 @@ sed -i -e s/OpenCore\.qcow2/OpenCore\-nopicker\.qcow2/ ./Launch-nopicker.sh
 "
 ```
 
-
-
 ### The big-sur image starts slowly after installation. Is this expected?
 
 Automatic updates are still on in the container's settings. You may wish to turn them off. [We have future plans for development around this.](https://github.com/khulnasoft/Docker-OSX/issues/227)
@@ -1892,7 +1908,7 @@ Automatic updates are still on in the container's settings. You may wish to turn
 `${DISPLAY}` is the same, but allows you to join variables like this:
 
 - e.g. `${DISPLAY}_${DISPLAY}` would print `:0.0_:0.0`
-- e.g. `$DISPLAY_$DISPLAY`     would print `:0.0`
+- e.g. `$DISPLAY_$DISPLAY` would print `:0.0`
 
 ...because `$DISPLAY_` is not `$DISPLAY`
 
@@ -1922,7 +1938,7 @@ If we let the Docker container use the same display socket as our own environmen
 
 ### ALSA errors on startup or container creation
 
-You may when initialising or booting into a container see errors from the `(qemu)` console of the following form: 
+You may when initialising or booting into a container see errors from the `(qemu)` console of the following form:
 `ALSA lib blahblahblah: (function name) returned error: no such file or directory`. These are more or less expected. As long as you are able to boot into the container and everything is working, no reason to worry about these.
 
 See also: [here](https://github.com/khulnasoft/Docker-OSX/issues/174).

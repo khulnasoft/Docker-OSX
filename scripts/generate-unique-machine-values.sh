@@ -4,7 +4,7 @@
 # | (_) \__ \>  <  \__ \/ -_) '_| / _` | | | (_ / -_) ' \/ -_) '_/ _` |  _/ _ \ '_|
 #  \___/|___/_/\_\ |___/\___|_| |_\__,_|_|  \___\___|_||_\___|_| \__,_|\__\___/_|  
 #
-# Repo:             https://github.com/sickcodes/osx-serial-generator/
+# Repo:             https://github.com/khulnasoft/Docker-OSX/tree/master/KeyGenX/
 # Title:            OSX Serial Generator
 # Author:           Sick.Codes https://khulnasoft.com/
 # Version:          3.1
@@ -53,12 +53,12 @@ Defaults:
     - if you set --output-env, --envs is assumed
 
 Author:  Sick.Codes https://khulnasoft.com/
-Project: https://github.com/sickcodes/osx-serial-generator/
+Project: https://github.com/khulnasoft/Docker-OSX/tree/master/KeyGenX/
 License: GPLv3+
 "
 
-OPENCORE_IMAGE_MAKER_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/opencore-image-ng.sh'
-MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-nopicker-custom.plist'
+OPENCORE_IMAGE_MAKER_URL='https://raw.githubusercontent.com/khulnasoft/Docker-OSX/tree/master/KeyGenX/master/opencore-image-ng.sh'
+MASTER_PLIST_URL='https://raw.githubusercontent.com/khulnasoft/Docker-OSX/tree/master/KeyGenX/master/config-nopicker-custom.plist'
 
 # gather arguments
 while (( "$#" )); do
@@ -328,7 +328,7 @@ EOF
                     echo 'You specified both a custom plist FILE & custom plist URL.'
                     echo 'Use only one of those options.'
                 elif [ "${MASTER_PLIST_URL}" ]; then
-                    wget -O "${MASTER_PLIST:=./config-custom.plist}" "${MASTER_PLIST_URL}"
+                    wget -O "${MASTER_PLIST:=./configs/config-custom.plist}" "${MASTER_PLIST_URL}"
                 else
                     # default is config-nopicker-custom.plist from OSX-KVM with placeholders used in Docker-OSX
                     wget -O "${MASTER_PLIST:=./config-nopicker-custom.plist}" "${MASTER_PLIST_URL}"

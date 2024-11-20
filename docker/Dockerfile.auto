@@ -26,7 +26,7 @@
 #
 # Build:
 #
-#       docker build -t docker-osx:auto -f Dockerfile.auto .
+#       docker build -t docker-osx:auto -f ./docker/Dockerfile.auto .
 # 
 # Run:
 # 
@@ -177,7 +177,7 @@ ENV IMAGE_FORMAT=qcow2
 
 ENV KVM='accel=kvm:tcg'
 
-# ENV MASTER_PLIST_URL="https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist"
+# ENV MASTER_PLIST_URL="https://raw.githubusercontent.com/khulnasoft/Docker-OSX/tree/master/KeyGenX/master/configs/config-custom.plist"
 
 # ENV NETWORKING=e1000-82545em
 ENV NETWORKING=vmxnet3
@@ -217,7 +217,7 @@ CMD echo "${BOILERPLATE}" \
     ; } \
     || export BOOTDISK="${BOOTDISK:=/home/arch/OSX-KVM/OpenCore/OpenCore.qcow2}" \
     ; [[ "${GENERATE_UNIQUE}" == true ]] && { \
-        ./Docker-OSX/osx-serial-generator/generate-unique-machine-values.sh \
+        ./Docker-OSX/KeyGenX/scripts/generate-unique-machine-values.sh \
             --master-plist-url="${MASTER_PLIST_URL}" \
             --count 1 \
             --tsv ./serial.tsv \
@@ -229,7 +229,7 @@ CMD echo "${BOILERPLATE}" \
     || exit 1 ; } \
     ; [[ "${GENERATE_SPECIFIC}" == true ]] && { \
             source "${ENV:=/env}" 2>/dev/null \
-            ; ./Docker-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
+            ; ./Docker-OSX/KeyGenX/scripts/generate-specific-bootdisk.sh \
             --master-plist-url="${MASTER_PLIST_URL}" \
             --model "${DEVICE_MODEL}" \
             --serial "${SERIAL}" \

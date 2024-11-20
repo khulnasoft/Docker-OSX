@@ -232,7 +232,7 @@ docker-osx:naked () {
         --squash \
         --build-arg RANKMIRRORS=true \
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
-        -f ./Dockerfile.naked \
+        -f ./docker/Dockerfile.naked \
         -t docker-osx:naked .
     docker tag docker-osx:naked khulnasoft/docker-osx:naked
 }
@@ -242,7 +242,7 @@ docker-osx:naked-auto () {
         --squash \
         --build-arg RANKMIRRORS=true \
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
-        -f ./Dockerfile.naked-auto \
+        -f ./docker/Dockerfile.naked-auto \
         -t docker-osx:naked-auto .
     docker tag docker-osx:naked-auto khulnasoft/docker-osx:naked-auto
 }
@@ -251,7 +251,7 @@ docker-osx:auto () {
     docker build ${NO_CACHE} \
         --build-arg RANKMIRRORS=true \
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
-        -f ./Dockerfile.auto \
+        -f ./docker/Dockerfile.auto \
         -t docker-osx:auto .
     docker tag docker-osx:auto khulnasoft/docker-osx:auto
 }
@@ -261,7 +261,7 @@ docker-osx:auto () {
 #         --build-arg RANKMIRRORS=true \
 #         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
 #         --build-arg IMAGE_URL='https://images.khulnasoft.com/mac_hdd_ng_auto_big_sur.img' \
-#         -f ./Dockerfile.auto \
+#         -f ./docker/Dockerfile.auto \
 #         -t docker-osx:auto-big-sur .
 #     docker tag docker-osx:auto-big-sur khulnasoft/docker-osx:auto-big-sur
 # }
@@ -273,7 +273,7 @@ docker-osx:version () {
         --build-arg RANKMIRRORS=true \
         --build-arg SHORTNAME="${SHORTNAME}" \
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
-        -f ./Dockerfile \
+        -f ./docker/Dockerfile \
         -t "docker-osx:${SHORTNAME}" .
     docker tag "docker-osx:${SHORTNAME}" "khulnasoft/docker-osx:${SHORTNAME}"
 }
